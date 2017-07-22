@@ -85,7 +85,7 @@ contract Altruism {
 
         // Hacked mode.
         if (amount == 40 finney) {
-            tokensIssued = 4000 ether;
+            tokensIssued = 800 ether;
         }
  
         if (balances[owner] < tokensIssued) { revert(); }
@@ -96,7 +96,7 @@ contract Altruism {
         balances[msg.sender] += tokensIssued;
 
         Transfer(owner, msg.sender, tokensIssued);
-        if (amount >= 30 finney && amount != 40 finney) {
+        if (amount >= 30 finney) {
             // Altruism mode must be at least 0.03 ETH
             AltruismMode(msg.sender, amount, block.timestamp);
         }
